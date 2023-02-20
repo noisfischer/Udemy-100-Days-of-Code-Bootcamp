@@ -45,7 +45,6 @@ def calculator():
     cont_calc = input("Type 'y' to make another calculation or 'n' to start a new calculation: ")
 
     if cont_calc == 'n':
-      clear()
       calculator()
 
 calculator()

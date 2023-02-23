@@ -3,10 +3,7 @@ import replit
 
 
 def next_guess(lives, number):
-  if lives == 0:
-    print(f"\nYOU LOSE! You ran out of lives. The number was {number}.\n")
-    return
-    
+  
   guess = int(input("\nMake a guess: "))
   
   if guess == number:
@@ -14,14 +11,25 @@ def next_guess(lives, number):
     return
   elif guess < number:
     lives -= 1
-    print(f"TOO LOW! The number is greater than {guess}.")
-    print(f"You have {lives} attempts left.")
-    next_guess(lives, number)
+    if lives == 0:
+      print(f"\nYOU LOSE! You ran out of lives. The number was {number}.\n")
+      return
+    else:
+      print(f"TOO LOW! The number is greater than {guess}.")
+      print(f"You have {lives} attempts left.")
+      next_guess(lives, number)
   elif guess > number:
     lives -= 1
-    print(f"TOO HIGH! The number is less than {guess}.")
-    print(f"You have {lives} attempts left.")
+    if lives == 0:
+      print(f"\nYOU LOSE! You ran out of lives. The number was {number}.\n")
+      return
+    else:
+      print(f"TOO HIGH! The number is less than {guess}.")
+      print(f"You have {lives} attempts left.")
+      next_guess(lives, number)
+    
     next_guess(lives, number)
+    
 
 
 play_again = 'y'

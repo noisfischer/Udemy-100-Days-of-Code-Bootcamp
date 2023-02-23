@@ -28,7 +28,6 @@ def next_guess(lives, number):
       print(f"You have {lives} attempts left.")
       next_guess(lives, number)
     
-    next_guess(lives, number)
     
 
 

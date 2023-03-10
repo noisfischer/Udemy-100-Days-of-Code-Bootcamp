@@ -23,7 +23,7 @@ class Snake:
         new_segment.penup()
         new_segment.color('white')
         new_segment.goto(self.x, 0)
-        self.x -= 400
+        self.x = -400
         self.all_segments.append(new_segment)
 
 
@@ -59,4 +59,11 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
 
-
+    # basically reinitializes our snake if we get game over without exiting the game and restarting
+    def reset(self):
+        self.x = 0
+        for seg in self.all_segments:
+            seg.goto(1000, 1000)
+        self.all_segments.clear()
+        self.create_snake()
+        self.head = self.all_segments[0]
